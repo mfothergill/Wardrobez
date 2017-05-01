@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Wardrobez.Models.Outfit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Accessory.AccessoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bottom.BottomsName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sho.ShoeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Top.TopsName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Accessory.AccessoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bottom.BottomsName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sho.ShoeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Top.TopsName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OutfitID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OutfitID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OutfitID })
+        </td>
+    </tr>
+}
+
+</table>
